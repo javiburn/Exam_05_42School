@@ -8,7 +8,7 @@ void TargetGenerator::forgetTargetType(std::string const &type){
     for (std::list<ATarget*>::iterator it = this->targets.begin(); it != this->targets.end(); it++){
         if ((*it)->getType() == type){
             this->targets.erase(it);
-            break;
+            return;
         }
     }
 }
@@ -20,4 +20,5 @@ ATarget* TargetGenerator::createTarget(std::string const &target){
             return (*it)->clone();
         }
     }
+    return NULL;
 }
